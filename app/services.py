@@ -1,5 +1,6 @@
+from datetime import datetime
 from typing import List
-from app.models import Entry
+from models import Entry
 
 leaderboard: List[Entry] = []
 performance_log = {}
@@ -22,5 +23,6 @@ def get_top_10():
 
 name = input("Enter username: ")
 score = input("Enter score: ")
-entry = Entry(username=name, score=int(score), timestamp=datetime.now())
+date = datetime.now()
+entry = Entry(username=name, score=int(score), timestamp=date)
 add_entry(entry)
