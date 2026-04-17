@@ -10,6 +10,7 @@ router = APIRouter()
 def add(username: str, score: int):
     entry = Entry(username=username, score=score, timestamp=datetime.now())
     add_entry(entry)
+    leaderboard.append(entry)
     return {"message": "Added"}
 
 @router.delete("/remove")
