@@ -1,5 +1,6 @@
 from typing import List
 from app.models import Entry
+from datetime import datetime
 
 leaderboard: List[Entry] = []
 performance_log = {}
@@ -13,11 +14,11 @@ def add_entry(entry: Entry):
 def remove_entry(username: str):
     global leaderboard
     leaderboard = [entry for entry in leaderboard if entry.username != username]
-    if username in perfromance_log:
-        del perfromance_log[username]
+    if username in performance_log:
+        del performance_log[username]
 
 def get_top_10():
-    sorted_leaderboard = sorted(leaderbooard, key=lambda x: x.score, reverse=True)
+    sorted_leaderboard = sorted(leaderboard, key=lambda x: x.score, reverse=True)
     return sorted_leaderboard[:10]
 
 name = input("Enter username: ")

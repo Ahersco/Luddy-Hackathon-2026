@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from datetime import datetime
 from app.models import Entry
-from app.services import add_entry, get_top_10, leaderboard
+from app.services import add_entry, get_top_10, remove_entry ,leaderboard
 from app.utils import compute_stats
 
 router = APIRouter()
