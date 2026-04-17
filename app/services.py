@@ -1,8 +1,10 @@
 from typing import List
-from .models import Entry
+from app.models import Entry
 
-leaderbooard: List[Entry] = []
-perfromance_log = {}
+leaderboard: List[Entry] = []
+performance_log = {}
+
+entry_given = False
 
 def add_entry(entry: Entry):
     leaderboard.append(entry)
@@ -17,3 +19,8 @@ def remove_entry(username: str):
 def get_top_10():
     sorted_leaderboard = sorted(leaderbooard, key=lambda x: x.score, reverse=True)
     return sorted_leaderboard[:10]
+
+name = input("Enter username: ")
+score = input("Enter score: ")
+entry = Entry(username=name, score=int(score), timestamp=datetime.now())
+add_entry(entry)
