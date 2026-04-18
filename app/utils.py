@@ -15,3 +15,16 @@ def track_performance(username, score):
     end_time = time.time()
     duration = end_time - start_time
     print(f"Performance for {username}: Score={score}, Time={duration:.2f} seconds")
+
+def compute_stats(entries):
+    scores = [e.score for e in entries]
+
+    if not scores:
+        return {}
+    
+    return {
+        "mean":statistics.mean(scores),
+        "median":statistics.median(scores),
+        "stdev":statistics.stdev(scores) if len(scores) > 1 else 0
+    }
+
